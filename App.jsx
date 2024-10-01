@@ -25,6 +25,7 @@ function App() {
   const handleDeleteTodo = (index) => {
     let reducedTodo = [...allTodos];
     reducedTodo.splice(index);
+    
     localStorage.setItem('todolist', JSON.stringify(reducedTodo))
     setTodos(reducedTodo);
   }
@@ -47,6 +48,7 @@ function App() {
     let updatedCompletedArr = [...completedTodos];
     updatedCompletedArr.push(filteredItem);
     setCompletedTodos(updatedCompletedArr);
+    handleDeleteTodo(index);
   }
 
   useEffect(()=>{
